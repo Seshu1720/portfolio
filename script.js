@@ -124,22 +124,20 @@ function validateField(field) {
     message = `Use at least ${field.minLength} characters.`;
   }
 
-  error.textContent = message;
+  if (error) {
+    error.textContent = message;
+  }
+
   return message === "";
 }
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const fields = [...form.querySelectorAll("input, textarea")];
+  const fields = [...form.querySelectorAll("[data-validate]")];
   const isValid = fields.map(validateField).every(Boolean);
 
   if (!isValid) {
     formStatus.textContent = "";
-    return;
-  }
-
-  if (form.action.includes("REPLACE_WITH_YOUR_FORM_ID")) {
-    formStatus.textContent = "Form is validated. Add your Formspree form ID in index.html to enable live delivery.";
     return;
   }
 
@@ -163,7 +161,7 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
-form.querySelectorAll("input, textarea").forEach((field) => {
+form.querySelectorAll("[data-validate]").forEach((field) => {
   field.addEventListener("input", () => validateField(field));
 });
 
