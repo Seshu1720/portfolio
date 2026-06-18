@@ -20,28 +20,25 @@ This works on GitHub Pages as long as the PDF stays in the same folder as `index
 
 ## Formspree Contact Form Setup
 
-Formspree needs a real form endpoint before messages can be delivered to your email.
-
-1. Go to `https://formspree.io/`.
-2. Sign in or create a free account.
-3. Create a new form.
-4. Set the receiving email to `seshu.perikala58@gmail.com`.
-5. Copy the endpoint. It will look like:
+The portfolio contact form is already connected to this Formspree endpoint:
 
 ```text
-https://formspree.io/f/abcdwxyz
+https://formspree.io/f/mgobjzgp
 ```
 
-6. Open `index.html`.
-7. Find this line:
+Receiving email:
+
+```text
+seshu.perikala58@gmail.com
+```
+
+The active form tag in `index.html` is:
 
 ```html
-<form class="contact-form glass reveal" id="contactForm" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" novalidate>
+<form class="contact-form glass reveal" id="contactForm" action="https://formspree.io/f/mgobjzgp" method="POST" novalidate>
 ```
 
-8. Replace `https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID` with your real Formspree endpoint.
-9. Deploy the updated files to GitHub Pages.
-10. Submit one test message from the live website and confirm the Formspree email verification if prompted.
+After deployment, submit one test message from the live website and confirm the Formspree email verification if prompted.
 
 The form already includes:
 
